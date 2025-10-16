@@ -25,6 +25,7 @@ This lab simulates a central backhone ASN (3481), to provide transit to two bran
 
 ## File Structure
 
+```
 ├── configs/                    # Device‑specific startup‑configs (.yaml)
 ├── docs/                       # Network design documentation
 │   ├── ASN_Plan.md  
@@ -44,6 +45,7 @@ This lab simulates a central backhone ASN (3481), to provide transit to two bran
 ├── topology/                   # Diagrams (.png, .drawio)
 ├── wireshark/                  # Packet captures for validation
 └── notes.md                    # Lab journal, troubleshooting    
+```
 
 ---
 
