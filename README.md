@@ -73,9 +73,9 @@ Refer to [notes.md](/notes.md) to tune and enable KSM on CML. Do note it would t
 
 ## Implementation Steps
 
-**Step 1:** Initial FortiGate setup via console (management) 
-**Step 2:** Configure PE routers with BGP and MPLS
-**Step 3:** FortiGate interface configuration
+**Step 1:** Initial FortiGate setup via console (management)  
+**Step 2:** Configure PE routers with BGP and MPLP  
+**Step 3:** FortiGate interface configuration  
 **Step 4:** OSPF within each autonomous system  
 **Step 5:** BGP peering between FortiGates and PE routers  
 **Step 6:** FGCP High Availability clustering (HUB1 + HUB2)  
