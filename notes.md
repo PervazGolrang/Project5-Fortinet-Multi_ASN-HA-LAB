@@ -1,6 +1,6 @@
 # Lab Journal and Troubleshooting
 
-This project, was designed to showcase my CCNP Enterprise (ENCOR + ENARSI) and Fortinet FCP (FCSS Enterprise Firewall 7.4, FortiGate Admin 7.4, FortiAnalyzer Admin 7.4) skills in a realistic, impressive topology. Built on CML 2.9.0, it integrates Fortinet FGCP HA, BGP/OSPF routing, IPsec tunnels, and DMZ services, blending GUI and CLI configs. Below are my notes, implementation challenges, and troubleshooting tips as of October 26, 2025. If more problems arise, then the date will be updated.
+This project, was designed to showcase my CCNP Enterprise (ENCOR + ENARSI) and Fortinet FCP (FCSS Enterprise Firewall 7.4, FortiGate Admin 7.4, FortiAnalyzer Admin 7.4) skills in a realistic, impressive topology. Built on CML 2.9.0, it integrates Fortinet FGCP HA, BGP/OSPF routing, IPsec tunnels, and DMZ services, blending GUI and CLI configs.
 
 ---
 
