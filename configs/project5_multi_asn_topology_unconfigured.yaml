@@ -1,0 +1,1387 @@
+annotations:
+  - border_color: '#FFFFFF'
+    border_radius: 0
+    border_style: 4,2
+    color: '#FFFFFF00'
+    rotation: 0
+    thickness: 1
+    type: rectangle
+    x1: -200.0
+    y1: -280.0
+    x2: 400.0
+    y2: 120.0
+    z_index: 0
+  - border_color: '#FF0000'
+    border_radius: 0
+    border_style: ''
+    color: '#FFFFFF00'
+    rotation: 0
+    thickness: 1
+    type: rectangle
+    x1: -240.0
+    y1: -320.0
+    x2: 480.0
+    y2: 200.0
+    z_index: -1
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#FF0000'
+    rotation: 0
+    text_bold: false
+    text_content: ASN 2000
+    text_font: monospace
+    text_italic: false
+    text_size: 14
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: 120.0
+    y1: -320.0
+    z_index: 2
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#FFFFFF'
+    rotation: 0
+    text_bold: false
+    text_content: DMZ
+    text_font: monospace
+    text_italic: false
+    text_size: 14
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: 160.0
+    y1: 320.0
+    z_index: 2
+  - border_color: '#FFFFFF'
+    border_radius: 0
+    border_style: 4,2
+    color: '#FFFFFF00'
+    rotation: 0
+    thickness: 1
+    type: rectangle
+    x1: -200.0
+    y1: 320.0
+    x2: 400.0
+    y2: 320.0
+    z_index: 0
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#00FF47'
+    rotation: 0
+    text_bold: false
+    text_content: OSPF - Area 1
+    text_font: monospace
+    text_italic: false
+    text_size: 14
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -680.0
+    y1: -40.0
+    z_index: 2
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#B3B3B3'
+    rotation: 0
+    text_bold: true
+    text_content: FGCP - HA
+    text_font: monospace
+    text_italic: false
+    text_size: 12
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -40.0
+    y1: 120.0
+    z_index: 4
+  - border_color: '#FF0000'
+    border_radius: 0
+    border_style: ''
+    color: '#FFFFFF00'
+    rotation: 0
+    thickness: 1
+    type: rectangle
+    x1: -280.0
+    y1: -40.0
+    x2: 560.0
+    y2: 760.0
+    z_index: -2
+  - border_color: '#FFFFFF'
+    border_radius: 0
+    border_style: 4,2
+    color: '#FFFFFF00'
+    rotation: 0
+    thickness: 1
+    type: rectangle
+    x1: -200.0
+    y1: 40.0
+    x2: 400.0
+    y2: 160.0
+    z_index: 0
+  - border_color: '#FF0000'
+    border_radius: 0
+    border_style: ''
+    color: '#FFFFFF00'
+    rotation: 0
+    thickness: 1
+    type: rectangle
+    x1: -760.0
+    y1: -80.0
+    x2: 400.0
+    y2: 520.0
+    z_index: -2
+  - border_color: '#FFFFFF'
+    border_radius: 0
+    border_style: 4,2
+    color: '#FFFFFF00'
+    rotation: 0
+    thickness: 1
+    type: rectangle
+    x1: -680.0
+    y1: 0.0
+    x2: 240.0
+    y2: 360.0
+    z_index: 0
+  - border_color: '#FFFFFF'
+    border_radius: 0
+    border_style: 4,2
+    color: '#FFFFFF00'
+    rotation: 0
+    thickness: 1
+    type: rectangle
+    x1: 440.0
+    y1: 0.0
+    x2: 240.0
+    y2: 360.0
+    z_index: 0
+  - border_color: '#FF0000'
+    border_radius: 0
+    border_style: ''
+    color: '#FFFFFF00'
+    rotation: 0
+    thickness: 1
+    type: rectangle
+    x1: 360.0
+    y1: -80.0
+    x2: 400.0
+    y2: 520.0
+    z_index: -2
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#FF0000'
+    rotation: 0
+    text_bold: false
+    text_content: ASN 65001
+    text_font: monospace
+    text_italic: false
+    text_size: 14
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -720.0
+    y1: -80.0
+    z_index: 2
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#FF0000'
+    rotation: 0
+    text_bold: false
+    text_content: ASN 65002
+    text_font: monospace
+    text_italic: false
+    text_size: 14
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: 640.0
+    y1: -80.0
+    z_index: 2
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#FF0000'
+    rotation: 0
+    text_bold: false
+    text_content: ASN 3481
+    text_font: monospace
+    text_italic: false
+    text_size: 14
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -240.0
+    y1: -40.0
+    z_index: 2
+  - border_color: '#38FF00'
+    border_radius: 0
+    border_style: ''
+    color: '#FFFFFF00'
+    rotation: 0
+    thickness: 1
+    type: rectangle
+    x1: -720.0
+    y1: -40.0
+    x2: 320.0
+    y2: 440.0
+    z_index: -1
+  - border_color: '#38FF00'
+    border_radius: 0
+    border_style: ''
+    color: '#FFFFFF00'
+    rotation: 0
+    thickness: 1
+    type: rectangle
+    x1: -240.0
+    y1: 0.0
+    x2: 480.0
+    y2: 680.0
+    z_index: -1
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#00FF47'
+    rotation: 0
+    text_bold: false
+    text_content: OSPF - Area 0
+    text_font: monospace
+    text_italic: false
+    text_size: 14
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -200.0
+    y1: 0.0
+    z_index: 2
+  - border_color: '#38FF00'
+    border_radius: 0
+    border_style: ''
+    color: '#FFFFFF00'
+    rotation: 0
+    thickness: 1
+    type: rectangle
+    x1: 400.0
+    y1: -40.0
+    x2: 320.0
+    y2: 440.0
+    z_index: -1
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#00FF47'
+    rotation: 0
+    text_bold: false
+    text_content: OSPF - Area 2
+    text_font: monospace
+    text_italic: false
+    text_size: 14
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: 560.0
+    y1: -40.0
+    z_index: 2
+  - border_color: '#FFFFFF00'
+    border_style: ''
+    color: '#FFFFFF'
+    rotation: 0
+    text_bold: true
+    text_content: OSLO - Branch A
+    text_font: monospace
+    text_italic: false
+    text_size: 12
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -760.0
+    y1: -120.0
+    z_index: 5
+  - border_color: '#FFFFFF00'
+    border_style: ''
+    color: '#FFFFFF'
+    rotation: 0
+    text_bold: true
+    text_content: Bergen - Branch B
+    text_font: monospace
+    text_italic: false
+    text_size: 12
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: 600.0
+    y1: -120.0
+    z_index: 5
+  - border_color: '#FFFFFF00'
+    border_style: ''
+    color: '#FFFFFF'
+    rotation: 0
+    text_bold: true
+    text_content: HUB
+    text_font: monospace
+    text_italic: false
+    text_size: 12
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: 240.0
+    y1: -40.0
+    z_index: 5
+smart_annotations: []
+nodes:
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n0
+    image_definition: null
+    label: FGT-HUB1
+    node_definition: fortigate
+    parameters: {}
+    ram: null
+    tags: []
+    x: -120
+    y: 120
+    interfaces:
+      - id: i0
+        label: port1
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i1
+        label: port2
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i2
+        label: port3
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i3
+        label: port4
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i4
+        label: port5
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i5
+        label: port6
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i6
+        label: port7
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i7
+        label: port8
+        mac_address: null
+        type: physical
+        slot: 7
+  - boot_disk_size: null
+    configuration:
+      - name: meta-data
+        content: ''
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n1
+    image_definition: null
+    label: FGT-HUB2
+    node_definition: fortigate
+    parameters: {}
+    ram: null
+    tags: []
+    x: 120
+    y: 120
+    interfaces:
+      - id: i0
+        label: port1
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i1
+        label: port2
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i2
+        label: port3
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i3
+        label: port4
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i4
+        label: port5
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i5
+        label: port6
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i6
+        label: port7
+        mac_address: null
+        type: physical
+        slot: 6
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n2
+    image_definition: null
+    label: FAZ
+    node_definition: fortianalyzer
+    parameters: {}
+    ram: null
+    tags: []
+    x: -160
+    y: 400
+    interfaces:
+      - id: i0
+        label: port1
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i1
+        label: port2
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i2
+        label: port3
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i3
+        label: port4
+        mac_address: null
+        type: physical
+        slot: 3
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n3
+    image_definition: alpine-wanem-3-21-3
+    label: WAN-EM
+    node_definition: wan_emulator
+    parameters: {}
+    ram: null
+    tags: []
+    x: 0
+    y: -240
+    interfaces:
+      - id: i0
+        label: eth0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i1
+        label: eth1
+        mac_address: null
+        type: physical
+        slot: 1
+  - boot_disk_size: null
+    configuration:
+      - name: node.cfg
+        content: |-
+          hostname PE1
+          !
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n4
+    image_definition: frr-10-2-1-r1
+    label: PE1
+    node_definition: frr
+    parameters: {}
+    ram: null
+    tags: []
+    x: -160
+    y: -240
+    interfaces:
+      - id: i0
+        label: eth0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i1
+        label: eth1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i2
+        label: eth2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i3
+        label: eth3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i4
+        label: eth4
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i5
+        label: eth5
+        mac_address: null
+        type: physical
+        slot: 5
+  - boot_disk_size: null
+    configuration:
+      - name: node.cfg
+        content: |-
+          hostname PE2
+          !
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n5
+    image_definition: null
+    label: PE2
+    node_definition: frr
+    parameters: {}
+    ram: null
+    tags: []
+    x: 160
+    y: -240
+    interfaces:
+      - id: i0
+        label: eth0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i1
+        label: eth1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i2
+        label: eth2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i3
+        label: eth3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i4
+        label: eth4
+        mac_address: null
+        type: physical
+        slot: 4
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname DMZ
+          !
+          line console 0
+           logging synchronous
+          !
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n6
+    image_definition: null
+    label: DMZ
+    node_definition: iosvl2
+    parameters: {}
+    ram: null
+    tags: []
+    x: 0
+    y: 400
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet1/0
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet1/1
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet1/2
+        mac_address: null
+        type: physical
+        slot: 6
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n7
+    image_definition: null
+    label: DNSMASQ
+    node_definition: dnsmasq
+    parameters: {}
+    ram: null
+    tags: []
+    x: -80
+    y: 560
+    interfaces:
+      - id: i0
+        label: eth0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i1
+        label: eth1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i2
+        label: eth2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i3
+        label: eth3
+        mac_address: null
+        type: physical
+        slot: 3
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n8
+    image_definition: null
+    label: RADIUS
+    node_definition: radius
+    parameters: {}
+    ram: null
+    tags: []
+    x: 80
+    y: 560
+    interfaces:
+      - id: i0
+        label: eth0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i1
+        label: eth1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i2
+        label: eth2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i3
+        label: eth3
+        mac_address: null
+        type: physical
+        slot: 3
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n9
+    image_definition: alpine-desktop-3-21-3
+    label: Desktop1
+    node_definition: desktop
+    parameters: {}
+    ram: null
+    tags: []
+    x: -640
+    y: 320
+    interfaces:
+      - id: i0
+        label: eth0
+        mac_address: null
+        type: physical
+        slot: 0
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n10
+    image_definition: null
+    label: SYSLOG
+    node_definition: syslog
+    parameters: {}
+    ram: null
+    tags: []
+    x: 160
+    y: 400
+    interfaces:
+      - id: i0
+        label: eth0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i1
+        label: eth1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i2
+        label: eth2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i3
+        label: eth3
+        mac_address: null
+        type: physical
+        slot: 3
+  - boot_disk_size: null
+    configuration:
+      - name: node.cfg
+        content: |-
+          # this is a shell script which will be sourced at boot
+          hostname inserthostname-here
+          # configurable user account
+          USERNAME=cisco
+          PASSWORD=cisco
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n11
+    image_definition: alpine-desktop-3-21-3
+    label: Desktop2
+    node_definition: desktop
+    parameters: {}
+    ram: null
+    tags: []
+    x: 480
+    y: 320
+    interfaces:
+      - id: i0
+        label: eth0
+        mac_address: null
+        type: physical
+        slot: 0
+  - boot_disk_size: null
+    configuration:
+      - name: meta-data
+        content: ''
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n12
+    image_definition: null
+    label: FGT-A
+    node_definition: fortigate
+    parameters: {}
+    ram: null
+    tags: []
+    x: -560
+    y: 40
+    interfaces:
+      - id: i0
+        label: port1
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i1
+        label: port2
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i2
+        label: port3
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i3
+        label: port4
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i4
+        label: port5
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i5
+        label: port6
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i6
+        label: port7
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i7
+        label: port8
+        mac_address: null
+        type: physical
+        slot: 7
+  - boot_disk_size: null
+    configuration:
+      - name: meta-data
+        content: ''
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n13
+    image_definition: null
+    label: FGT-B
+    node_definition: fortigate
+    parameters: {}
+    ram: null
+    tags: []
+    x: 560
+    y: 40
+    interfaces:
+      - id: i0
+        label: port1
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i1
+        label: port2
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i2
+        label: port3
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i3
+        label: port4
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i4
+        label: port5
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i5
+        label: port6
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i6
+        label: port7
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i7
+        label: port8
+        mac_address: null
+        type: physical
+        slot: 7
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname R1
+          !
+          line console 0
+           logging synchronous
+          !
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n14
+    image_definition: iosv-159-3-m10
+    label: R1-A
+    node_definition: iosv
+    parameters: {}
+    ram: null
+    tags: []
+    x: -640
+    y: 160
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname R2
+          !
+          line console 0
+           logging synchronous
+          !
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n15
+    image_definition: null
+    label: R3-B
+    node_definition: iosv
+    parameters: {}
+    ram: null
+    tags: []
+    x: 480
+    y: 160
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+  - boot_disk_size: null
+    configuration:
+      - name: node.cfg
+        content: |-
+          hostname R2-H
+          !
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n16
+    image_definition: null
+    label: R2-H
+    node_definition: frr
+    parameters: {}
+    ram: null
+    tags: []
+    x: -120
+    y: 240
+    interfaces:
+      - id: i0
+        label: eth0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i1
+        label: eth1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i2
+        label: eth2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i3
+        label: eth3
+        mac_address: null
+        type: physical
+        slot: 3
+  - boot_disk_size: null
+    configuration:
+      - name: default
+        content: System Bridge
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n17
+    image_definition: null
+    label: Oslo_mgmt
+    node_definition: external_connector
+    parameters: {}
+    ram: null
+    tags: []
+    x: -520
+    y: 200
+    interfaces:
+      - id: i0
+        label: port
+        mac_address: null
+        type: physical
+        slot: 0
+  - boot_disk_size: null
+    configuration:
+      - name: default
+        content: System Bridge
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n18
+    image_definition: null
+    label: Berg_mgmt
+    node_definition: external_connector
+    parameters: {}
+    ram: null
+    tags: []
+    x: 600
+    y: 200
+    interfaces:
+      - id: i0
+        label: port
+        mac_address: null
+        type: physical
+        slot: 0
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n19
+    image_definition: null
+    label: SW1
+    node_definition: unmanaged_switch
+    parameters: {}
+    ram: null
+    tags: []
+    x: 120
+    y: 240
+    interfaces:
+      - id: i0
+        label: port0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i1
+        label: port1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i2
+        label: port2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i3
+        label: port3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i4
+        label: port4
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i5
+        label: port5
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i6
+        label: port6
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i7
+        label: port7
+        mac_address: null
+        type: physical
+        slot: 7
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n20
+    image_definition: null
+    label: HUB_mgmt
+    node_definition: external_connector
+    parameters: {}
+    ram: null
+    tags: []
+    x: 0
+    y: 240
+    interfaces:
+      - id: i0
+        label: port
+        mac_address: null
+        type: physical
+        slot: 0
+links:
+  - id: l0
+    n1: n2
+    n2: n6
+    i1: i0
+    i2: i2
+    conditioning: {}
+    label: FAZ-port1<->DMZ-GigabitEthernet0/1
+  - id: l1
+    n1: n7
+    n2: n6
+    i1: i0
+    i2: i3
+    conditioning: {}
+    label: DNSMASQ-eth0<->DMZ-GigabitEthernet0/2
+  - id: l2
+    n1: n8
+    n2: n6
+    i1: i0
+    i2: i4
+    conditioning: {}
+    label: RADIUS-eth0<->DMZ-GigabitEthernet0/3
+  - id: l3
+    n1: n10
+    n2: n6
+    i1: i0
+    i2: i5
+    conditioning: {}
+    label: SYSLOG-eth0<->DMZ-GigabitEthernet1/0
+  - id: l4
+    n1: n11
+    n2: n15
+    i1: i0
+    i2: i2
+    conditioning: {}
+    label: Desktop2-eth0<->R2-GigabitEthernet0/1
+  - id: l5
+    n1: n4
+    n2: n3
+    i1: i0
+    i2: i0
+    conditioning: {}
+    label: PE1-eth0<->WAN-EM-eth0
+  - id: l6
+    n1: n5
+    n2: n3
+    i1: i0
+    i2: i1
+    conditioning: {}
+    label: PE2-eth0<->WAN-EM-eth1
+  - id: l7
+    n1: n4
+    n2: n12
+    i1: i1
+    i2: i0
+    conditioning: {}
+    label: PE1-eth1<->FGT-A-port1
+  - id: l8
+    n1: n5
+    n2: n12
+    i1: i1
+    i2: i1
+    conditioning: {}
+    label: PE2-eth1<->FGT-A-port2
+  - id: l9
+    n1: n4
+    n2: n0
+    i1: i2
+    i2: i0
+    conditioning: {}
+    label: PE1-eth2<->FGT-HUB1-port1
+  - id: l10
+    n1: n5
+    n2: n0
+    i1: i2
+    i2: i1
+    conditioning: {}
+    label: PE2-eth2<->FGT-HUB1-port2
+  - id: l11
+    n1: n4
+    n2: n1
+    i1: i3
+    i2: i0
+    conditioning: {}
+    label: PE1-eth3<->FGT-HUB2-port1
+  - id: l12
+    n1: n5
+    n2: n1
+    i1: i3
+    i2: i1
+    conditioning: {}
+    label: PE2-eth3<->FGT-HUB2-port2
+  - id: l13
+    n1: n4
+    n2: n13
+    i1: i4
+    i2: i0
+    conditioning: {}
+    label: PE1-eth4<->FGT-B-port1
+  - id: l14
+    n1: n5
+    n2: n13
+    i1: i4
+    i2: i1
+    conditioning: {}
+    label: PE2-eth4<->FGT-B-port2
+  - id: l15
+    n1: n12
+    n2: n14
+    i1: i2
+    i2: i1
+    conditioning: {}
+    label: FGT-A-port3<->R1-A-GigabitEthernet0/0
+  - id: l16
+    n1: n14
+    n2: n9
+    i1: i2
+    i2: i0
+    conditioning: {}
+    label: R1-A-GigabitEthernet0/1<->Desktop1-eth0
+  - id: l17
+    n1: n0
+    n2: n16
+    i1: i2
+    i2: i1
+    conditioning: {}
+    label: FGT-HUB1-port3<->R2-H-eth1
+  - id: l18
+    n1: n1
+    n2: n16
+    i1: i2
+    i2: i2
+    conditioning: {}
+    label: FGT-HUB2-port3<->R2-H-eth2
+  - id: l19
+    n1: n13
+    n2: n15
+    i1: i2
+    i2: i1
+    conditioning: {}
+    label: FGT-B-port3<->R3-B-GigabitEthernet0/0
+  - id: l20
+    n1: n0
+    n2: n1
+    i1: i3
+    i2: i3
+    conditioning: {}
+    label: FGT-HUB1-port4<->FGT-HUB2-port4
+  - id: l21
+    n1: n0
+    n2: n1
+    i1: i4
+    i2: i4
+    conditioning: {}
+    label: FGT-HUB1-port5<->FGT-HUB2-port5
+  - id: l22
+    n1: n16
+    n2: n6
+    i1: i3
+    i2: i1
+    conditioning: {}
+    label: R2-H-eth3<->DMZ-GigabitEthernet0/0
+  - id: l23
+    n1: n17
+    n2: n12
+    i1: i0
+    i2: i3
+    conditioning: {}
+    label: ext-conn-0-port<->FGT-A-port4
+  - id: l24
+    n1: n18
+    n2: n13
+    i1: i0
+    i2: i3
+    conditioning: {}
+    label: ext-conn-2-port<->FGT-B-port4
+  - id: l25
+    n1: n19
+    n2: n0
+    i1: i0
+    i2: i5
+    conditioning: {}
+    label: SW1-port0<->FGT-HUB1-port6
+  - id: l26
+    n1: n19
+    n2: n1
+    i1: i1
+    i2: i5
+    conditioning: {}
+    label: SW1-port1<->FGT-HUB2-port6
+  - id: l27
+    n1: n20
+    n2: n19
+    i1: i0
+    i2: i2
+    conditioning: {}
+    label: ext-conn-0-port<->SW1-port2
+lab:
+  description: ''
+  notes: ''
+  title: Fortinet LAB
+  version: 0.3.0

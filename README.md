@@ -1,61 +1,71 @@
-# Project 3 - Fortinet Multi-ASN Network with BGP, OSPF, and HA
+# Project 5 - Fortinet BGP/OSPF Multi-ASN HA Lab Environment
 
-This repository contains a multi-ASN topology built using CML 2.9.0, which focuses on Fortinet Firewalls as edge security, HA-clustering, and IGP/EGP routing using BGP and OSPF. The project integrates FRR for provider edge, Cisco IOSv for branch-routing, and DMZ services (FAZ, DNSMASQ, RADUS, SYSLOG NG, NTP Server). The lab is supposed to demonstrate a semi-realistic real-world ISP-branch scenarios with dual-homing, failover, and security policies, using a mix of both Fortinet GUI and CLI for configs.
+This repisitory features a multi-ASN topology built in CML 2.9.0, focusing on Fortinet **FortiOS 7.6.4** and **FortiOS 7.0.9** for edge security, HA clustering, logging, and routing with OSPF and BGP.
 
 ---
 
 ## What This Lab Does
 This lab simulates a central backhone ASN (3481), to provide transit to two branch ASNs (65001, 65002) via a provider ASN (2000):
+
 - **Fortinet FGCP HA**: Active-passive clustering on HUB-firewalls for redundancy.
 - **BGP Peering**: Multi-homed eBGP between branches and PEs; iBGP in backbone.
 - **OSPF Areas**: Multi-area setup with Area 0 (backbone), Area 1 (left branch), Area 2 (right branch).
-- **Security & Services**: Firewall policies, VPN (IPSec), DMZ hosting analytics/logging/auth-services.
-- **Endpoint Testing**: Browser containers (Firefox/Chrome) and desktops for reachability and validation.
-- **WAN Emulation**: Simulated delays/jitter via WAN-EM.
+- **Security & Services**: Firewall policies, VPN (IPSec), DMZ hosting analytics/logging/auth.
+- **WAN Emulation**: Simulated latency/jitter/packet loss testing.
 
 ---
 
 ## Network Topology
-![Network Topology](topology/project3_multi_asn_topology.png)
-
-### Drawio Topology
-[project3_topology.drawio](topology/project3_topology.drawio)
+![Network Topology](topology/project5_multi_asn_topology.png)
 
 ---
 
 ## File Structure
 
 ```
-├── configs/                    # Device‑specific startup‑configs (.yaml)
-├── docs/                       # Network design documentation
-│   ├── ASN_Plan.md  
-│   ├── Design.md
-│   ├── IP_Plan.md              
-│   ├── Security_Policies.md  
-│   └── Services_Config.md      
-├── steps/                      # Step-by-step implementation guides
-│   ├── 01_Base_Interfaces.md
-│   ├── 02_OSPF_Config.md
-│   ├── 03_BGP_Config.md
-│   ├── 04_FGCP_HA.md
-│   ├── 05_Firewall_Policies.md
-│   ├── 06_DMZ_Services.md
-│   ├── 07_WAN_Emulation.md
-│   └── 08_Verification.md
-├── topology/                   # Diagrams (.png, .drawio)
-├── wireshark/                  # Packet captures for validation
-└── notes.md                    # Lab journal, troubleshooting    
+├── configs/                             # Device‑specific startup‑configs (.yaml)
+├── docs/                                # Network design documentation
+│   ├── IP_Plan.md  
+│   └── ASN_Plan.md       
+├── steps/                               # Step-by-step implementation guides
+│   ├── 01_Initial_FortiGate_Setup.md
+│   ├── 02_PE_Routers_MPLS.md
+│   ├── 03_FortiGate_Interfaces.md
+│   ├── 04_OSPF_Configuration.md
+│   ├── 05_BGP_Peering.md
+│   ├── 06_FGCP_HA_Clustering.md
+│   ├── 07_IPsec_VPN_Tunnels.md
+│   ├── 08_Security_Policies.md
+│   ├── 09_FortiAnalyzer_Integration.md
+│   └── 10_DMZ_Services_Setup.md
+├── topology/                            # Diagram (.png)
+│   ├── project5_multi_asn_topology_unconfigured.png
+│   └── project5_multi_asn_topology_configured.png
+├── wireshark/                           # Packet capture
+└── notes.md                             # Lab journal, troubleshooting    
 ```
 
 ---
+
+## Network Device images
+
+| Device         | Image version       |
+| -------------- | ------------------- | 
+| FortiGate      | FortiOS v7.0.9      | 
+| FortiAnalyzer  | FortiOS v7.6.3      | 
+| WAN Emulator   | 3.21.3              | 
+| vIOS           | 15.9(3) M10         | 
+| FRR            | 10.2.1-r1           | 
+| Desktop        | Alpine Linux 3.21.3 | 
 
 ## Lab Requirements
 
 | Component   | Requirement                       | Notes                                                                 |
 | ----------- | --------------------------------- | --------------------------------------------------------------------- |
-| RAM         | 32GB (w/ KSM)                     | FortiGates (4-8GB each), FRR/IOSv (1GB each), services (2GB total)    |
-| vCPU        | 21 vCPUs                          | 4 vCPU per FortiGate HA pair, 2 per FRR/PE, 1 per others              |
-| Platform    | CML 2.9.0                         | FortiGate 7.4.x, FRR 8.x, IOSv 15.9, Linux containers (DNSMASQ, etc.) |
+| RAM         | 24GB (w/ KSM)                     | FortiGates (2GB each), FRR/IOSv (1GB each), services (2GB total)      |
+| vCPU        | 14 vCPUs                          | 1 vCPU per FortiGate HA pair, 2 per FRR/PE, 1 per others              |
+| Storage     | 334.10GB free (edit)              | FortiAnalyzer consumes a large amount of storage                      |
+| Platform    | CML 2.9.0                         | FortiGate 7.6.3, FRR 8.x, IOSv 15.9, Docker containers etc..          |
 
 Refer to [notes.md](/notes.md) to tune and enable KSM on CML. Do note it would take up to 15 minutes to fully complete the memory de-duplication.
 
@@ -63,21 +73,28 @@ Refer to [notes.md](/notes.md) to tune and enable KSM on CML. Do note it would t
 
 ## Implementation Steps
 
-**Step 1:** Interface/IP setup and loopbacks  
-**Step 2:** OSPF foundation across areas  
-**Step 3:** BGP sessions (eBGP multi-homing, iBGP in backbone)  
-**Step 4:** FGCP HA clustering on HUB FortiGates  
-**Step 5:** Firewall policies, NAT, and security profiles  
-**Step 6:** DMZ services config (FAZ, DNS, RADIUS, SYSLOG, NTP)  
-**Step 7:** WAN-EM setup for latency/jitter simulation  
-**Step 8:** Verification, failover testing, and packet captures
+**Step 1:** Initial FortiGate setup via console (management) 
+**Step 2:** Configure PE routers with BGP and MPLS
+**Step 3:** FortiGate interface configuration
+**Step 4:** OSPF within each autonomous system  
+**Step 5:** BGP peering between FortiGates and PE routers  
+**Step 6:** FGCP High Availability clustering (HUB1 + HUB2)  
+**Step 7:** IPsec VPN tunnels for branch-to-hub connectivity  
+**Step 8:** Security policies, NAT, and application control  
+**Step 9:** FortiAnalyzer integration and log forwarding  
+**Step 10:** DMZ services (DNS, DHCP, RADIUS, Syslog) 
 
-Each step builds upon the previous step - using GUI for the Fortinet Policies, and the CLI for routing/debugging.
+Each step builds upon the previous step.
+
+These steps will also mostly follow the format below in terms of CLI/GUI usage:
+- **CLI** for Steps 1-3 (foundation)
+- **GUI** for Steps 7-9 (security settings)
+- **Mix** for Step 4-6 (routing - CLI mostly for speed, GUI for verification)
+
+Step 10 is mostly about setting up the docker services in CML.
 
 ---
 
 ## Notes
 
-This lab was built to bridge my CCNP ENT, Cisco SCOR, and Fortinet FCP knowledge. CML is limited, e.g. no real WAN variance, so the mean focus is on configurations over performance testing. Troubleshooting and lab-changes is mentioned on [notes.md](/notes.md), which also covers common HA sync issues and BGP convergence.
-
-The goal of this lab is to expend my education from theoretical Fortinet and security knowledge, to practical lab-knowledge.
+This lab builds on from experience and knowledge from my previous labs **Project 1** to **Project 4**, where **Project 5** focuses more on Fortinet **security orchestration** rather than on pure routing. This project was built to demonstrate my CCNP ENT, Cisco SCOR, and Fortinet FCP/FCSS Network Security knowledge in a practical, production-like environment. CML-2.9.0 is limited, e.g. no real WAN variance, so the mean focus is on configurations over performance testing. See [`notes.md`](notes.md) for implementation challenges, and troubleshooting.
