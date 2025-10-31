@@ -280,7 +280,7 @@ end
 
 ### Tunnel Status (CLI)
 ```bash
-get vpn ipsec tunnel summary
+get vpn ipsec tunnel summary 
 ```
 
 [Step07 - IPsec tunnel summary](/images/step07_ipsec_tunnel_sum.png)
