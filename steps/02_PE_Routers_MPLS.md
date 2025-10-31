@@ -37,7 +37,6 @@ interface eth4
  description "FGT-B"
  no shutdown
 end
-write
 ```
 
 ### iBGP Configuration
@@ -53,12 +52,11 @@ router bgp 2000
   neighbor 10.255.0.2 next-hop-self
  exit-address-family
 end
-write
 ```
 
 ---
 
-## PE2 (Service Provider Edge 2)
+## PE2 (Service Provider Edge - 2)
 ```bash
 interface lo
  ip address 10.255.0.2/32
@@ -89,7 +87,6 @@ interface eth4
  description "FGT-B"
  no shutdown
 end
-write
 ```
 
 ### iBGP Configuration
@@ -105,7 +102,6 @@ router bgp 2000
   neighbor 10.255.0.1 next-hop-self
  exit-address-family
 end
-write
 ```
 
 ---
@@ -131,27 +127,4 @@ interface eth3
  description "DMZ-SW"
  no shutdown
 end
-write
 ```
-
----
-
-## Verification
-
-### Hub Firewall Management Access
-
-**From my PC (192.168.40.56):**
-
-Ping FGT-HUB1:
-```bash
-ping 10.100.10.1 -c 4
-```
-
-[step02_fgt-hub1_ping_verf](/images/step02_fgt-hub1_ping_verf.png)
-
-Ping FGT-HUB2:
-```bash
-ping 10.100.10.2 -c 4
-```
-
-[step02_fgt-hub2_ping_verf](/images/step02_fgt-hub2_ping_verf.png)

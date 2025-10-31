@@ -66,14 +66,6 @@ This is a complete addressing scheme that use structured RFC 1918 and documentat
 | FGT-HUB2 ↔ R2-H | FGT-HUB2 port3 | R2-H eth2   | 10.100.254.5 | 10.100.254.6 | 10.100.254.4/30 | Area 0    |
 | FGT-B ↔ R3-B    | FGT-B port3    | R3-B Gi0/0  | 10.20.254.1  | 10.20.254.2  | 10.20.254.0/30  | Area 2    |
 
-### Inter-VDOM Links (Hub Only)
-
-| Device        | VDOM A | Interface A   | IP A         | VDOM B | Interface B   | IP B         | Subnet          |
-|---------------|--------|---------------|--------------|--------|---------------|--------------|-----------------|
-| FGT-HUB1/HUB2 | WAN    | vdom-link-wan | 10.100.255.1 | LAN    | vdom-link-lan | 10.100.255.2 | 10.100.255.0/30 |
-
-- Multiple VDOMs are uncesessary in production, however, I added it for demonstration and practice purposes.
-
 ### Management Connections (Home Network - 192.168.40.0/24)
 
 | Device   | Management Port | Management IP    | Gateway      |
@@ -95,34 +87,33 @@ All interfaces connect to the "External Connection" node that bridges to my home
 
 ---
 
-## VLAN and LAN Segments
+## LAN Segments
 
 ### Branch A - Oslo
 
-| Network       | VLAN | Gateway           | DHCP Range       | Static IPs             | Purpose          |
-|---------------|------|-------------------|------------------|------------------------|------------------|
-| 10.10.10.0/24 | 10   | 10.10.10.1 (R1-A) | 10.10.10.100-199 | Desktop1: 10.10.10.10  | Users            |
-| 10.10.99.0/24 | 99   | 10.10.99.1 (R1-A) | None             | Oslo_mgmt: 10.10.99.10 | Local management |
+| Network       | Gateway           | DHCP Range       | Static IPs             | Purpose           |
+|---------------|-------------------|------------------|------------------------|-------------------|
+| 10.10.10.0/24 | 10.10.10.1 (R1-A) | 10.10.10.100-199 | Desktop1: 10.10.10.10  | User workstations |
+| 10.10.99.0/24 | 10.10.99.1 (R1-A) | None             | Oslo_mgmt: 10.10.99.10 | Local management  |
 
 ### Hub - Central
 
-| Network        | VLAN | Gateway              | DHCP | Static IPs                         | Purpose              |
-|----------------|------|----------------------|------|------------------------------------|----------------------|
-| 10.100.10.0/24 | 10   | 10.100.10.254 (R2-H) | None | FAZ: .10, RADIUS: .30, Syslog: .40 | DMZ services         |
-| 10.100.99.0/24 | 99   | 10.100.99.1 (R2-H)   | None | HUB_mgmt: 10.100.99.10             | Local hub management |
+| Network        | Gateway              | DHCP | Static IPs                         | Purpose              |
+|----------------|----------------------|------|------------------------------------|----------------------|
+| 10.100.10.0/24 | 10.100.10.254 (R2-H) | None | FAZ: .10, RADIUS: .30, Syslog: .40 | DMZ services         |
+| 10.100.99.0/24 | 10.100.99.1 (R2-H)   | None | HUB_mgmt: 10.100.99.10             | Local hub management |
 
-**DMZ Services:**
+**DMZ Services (not configured on this lab - only visual):**
 - FortiAnalyzer: 10.100.10.10
 - FreeRADIUS: 10.100.10.30
 - Syslog-NG: 10.100.10.40
 
 ### Branch B - Bergen
 
-| Network       | VLAN | Gateway           | DHCP Range       | Static IPs             | Purpose          |
-|---------------|------|-------------------|------------------|------------------------|------------------|
-| 10.20.20.0/24 | 20   | 10.20.20.1 (R3-B) | 10.20.20.100-199 | Desktop2: 10.20.20.10  | Users            |
-| 10.20.99.0/24 | 99   | 10.20.99.1 (R3-B) | None             | Berg_mgmt: 10.20.99.10 | Local management |
-
+| Network       | Gateway           | DHCP Range       | Static IPs             | Purpose           |
+|---------------|-------------------|------------------|------------------------|-------------------|
+| 10.20.20.0/24 | 10.20.20.1 (R3-B) | 10.20.20.100-199 | Desktop2: 10.20.20.10  | User workstations |
+| 10.20.99.0/24 | 10.20.99.1 (R3-B) | None             | Berg_mgmt: 10.20.99.10 | Local management  |
 
 ---
 
@@ -141,8 +132,3 @@ All interfaces connect to the "External Connection" node that bridges to my home
 |------------------|----------------------|--------------------------|-----------------|------------------|---------------|
 | BRANCH-B-HUB-PRI | 192.168.0.26 (port1) | 192.168.0.10 (HUB port1) | 172.31.2.1      | 172.31.2.2       | 172.31.2.0/30 |
 | BRANCH-B-HUB-BAK | 192.168.0.30 (port2) | 192.168.0.14 (HUB port2) | 172.31.2.5      | 172.31.2.6       | 172.31.2.4/30 |
-
-**IPsec Parameters:**
-- IKEv2, AES-256-CBC, SHA-256, DH Group 19
-- Phase 1: 8 hours, Phase 2: 1 hour
-- DPD: 10 sec interval, 3 retries

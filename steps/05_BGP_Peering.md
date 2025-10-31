@@ -4,7 +4,7 @@ This step configures route advertisement, distribution, and the eBGP sessions be
 
 ---
 
-## PE Routers - Add Customer BGP Sessions
+## PE Routers
 
 ### PE1
 ```bash
@@ -33,7 +33,32 @@ router bgp 2000
   neighbor 192.168.0.26 default-originate
  exit-address-family
 end
-write
+```
+
+Adding OSPF here compared to [Step04](/steps/04_OSPF_Configuration.md), as it would now have both OSPF and BGP.
+
+```bash
+router ospf
+ ospf router-id 10.255.0.1
+!
+interface lo
+ ip ospf area 0
+!
+interface eth0
+ ip ospf area 0
+!
+interface eth1
+ ip ospf passive
+!
+interface eth2
+ ip ospf passive
+!
+interface eth3
+ ip ospf passive
+!
+interface eth4
+ ip ospf passive
+exit
 ```
 
 ### PE2
@@ -63,7 +88,30 @@ router bgp 2000
   neighbor 192.168.0.30 default-originate
  exit-address-family
 end
-write
+```
+
+```bash
+router ospf
+ ospf router-id 10.255.0.2
+!
+interface lo
+ ip ospf area 0
+!
+interface eth0
+ ip ospf area 0
+!
+interface eth1
+ ip ospf passive
+!
+interface eth2
+ ip ospf passive
+!
+interface eth3
+ ip ospf passive
+!
+interface eth4
+ ip ospf passive
+exit
 ```
 
 ---
@@ -87,9 +135,9 @@ config router bgp
     config network
         edit 1
             set prefix 10.10.0.0 255.255.0.0
-    end
+        end
+    !
 end
-write
 ```
 
 ### Redistribution (BGP to OSPF)
@@ -104,7 +152,6 @@ config router ospf
         set tag 100
     end
 end
-write
 ```
 
 Since there's a BGP to OSPF redistribution, I added loop-prevention, which requires the creation of two rules for the route-map, a short explination:
@@ -134,7 +181,6 @@ config router bgp
         set route-map "OSPF-TO-BGP"
     end
 end
-write
 ```
 
 ---
@@ -161,7 +207,6 @@ config router bgp
             set prefix 10.20.0.0 255.255.0.0
     end
 end
-write
 ```
 
 ### Redistribution (BGP to OSPF)
@@ -173,18 +218,10 @@ config router ospf
         set tag 100
     end
 end
-write
 ```
 
 ### Redistribution (OSPF to BGP)
 ```bash
-config router bgp
-    config redistribute ospf
-        set status enable
-        set route-map "OSPF-TO-BGP"
-    end
-end
-!
 config router route-map
     edit "OSPF-TO-BGP"
         config rule
@@ -195,24 +232,24 @@ config router route-map
             next
             edit 2
                 set action permit
-            !
         end
     !
 end
-write
+!
+config router bgp
+    config redistribute ospf
+        set status enable
+        set route-map "OSPF-TO-BGP"
+    end
+end
 ```
 
 ---
 
 ## Hub - FGT-HUB1
 
-BGP runs in the **WAN VDOM**, OSPF runs in the **LAN VDOM**. Redistribution would occur between the two VDOMs via the inter-VDOM link and the static routes.
-
-### BGP Configuration (WAN VDOM)
+### BGP Configuration
 ```bash
-config vdom
-edit WAN
-!
 config router bgp
     set as 3481
     set router-id 10.255.3.1
@@ -229,67 +266,34 @@ config router bgp
     config network
         edit 1
             set prefix 10.100.0.0 255.255.0.0
-        !
+        end
+    !
+end
+```
+
+### Redistribute OSPF to BGP
+```bash
+config router bgp
+    config redistribute ospf
+        set status enable
     end
 end
 ```
 
-### Static Route in WAN VDOM (for BGP advertisement)
+### Redistributing the default route to OSP
 ```bash
-config vdom
-edit WAN
-!
-config router static
-    edit 2
-        set dst 10.100.0.0 255.255.0.0
-        set device "vdom-link0"
-        set gateway 10.100.255.2
-        set comment "Hub aggregate via LAN VDOM"
-    !
-end
-write
-```
-
-### Redistribute Default Route to LAN VDOM
-
-Creation of a static default route (in **LAN VDOM**) is pointed to the **WAM VDOM:**
-
-```bash
-config vdom
-edit LAN
-!
-config router static
-    edit 2
-        set dst 0.0.0.0 0.0.0.0
-        set device "vdom-link1"
-        set gateway 10.100.255.1
-        set comment "Default route via WAN VDOM"
-    !
-end
-write
-```
-
-### Redistribute Default into OSPF (LAN VDOM)
-```bash
-config vdom
-edit LAN
-!
 config router ospf
     set default-information-originate enable
     set default-metric 100
 end
-write
 ```
 
 ---
 
 ## Hub - FGT-HUB2
 
-### BGP Configuration (WAN VDOM)
+### BGP Configuration
 ```bash
-config vdom
-edit WAN
-!
 config router bgp
     set as 3481
     set router-id 10.255.3.2
@@ -306,50 +310,35 @@ config router bgp
     config network
         edit 1
             set prefix 10.100.0.0 255.255.0.0
-        !
-    end
-end
-write
-```
-
-### Static Routes and OSPF Default Origination
-
-```bash
-config vdom
-edit LAN
-!
-config router static
-    edit 1
-        set dst 0.0.0.0 0.0.0.0
-        set device "vdom-link1"
-        set gateway 10.100.255.1
-        set comment "Default route via WAN VDOM"
+        end
     !
 end
-!
+```
+
+### Redistribute OSPF to BGP
+```bash
+config router bgp
+    config redistribute ospf
+        set status enable
+    end
+end
+```
+
+### Redistributing the default route to OSPF
+```bash
 config router ospf
     set default-information-originate enable
     set default-metric 100
 end
-write
 ```
 
 ---
 
 ## Verification
 
-**From PE1, check routes received from FGT-A:**
+**PE1 BGP Table**
 ```bash
 show bgp neighbors 192.168.0.2 routes
 ```
 
-* bilde
-
-### Check Redistribution
-
-**From FGT-A, check OSPF routes:**
-```bash
-get router info routing-table ospf
-```
-
-* bilde
+[Ste05 - BGP Summary of PE1](/images/step05_pe1_bgp_sum.png)

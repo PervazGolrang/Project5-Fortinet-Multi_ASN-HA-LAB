@@ -4,34 +4,33 @@ This step configures the FGCP active-passive Ha clustering for the hub firewalls
 
 ---
 
+HA seems quite simple, but in Fortinet it's tricky GUI-wise compared to other vendors. It would practically require to fill in 10+ fields anually with a mix of click-type-click-type. It was much faster, less error-prone, and less boring to use the cli.
+
+The main reason why I kept seperate links is, due to, even though Heartbeat traffic is small, it's frequent (millisecnds), so session sync can be quite large (up in the thousands) - seperating them prevens session sync delays. This is quite a small deployment, but **It's still best practice** in my opinion. There is nothing lost, other than one port, and reduces future changes if it came to it.
+
 ## FGT-HUB1 (Primary)
 
 **Short glossary:**
+- `session-sync-dev "port5"`: Session synchronization interface (failover and load-balancing)
 - `hbdev "port4" 50`: Heartbeat interface with priority 50
 - `session-pickup enable`: Syncs TCP/UDP sessions between units
 - `ha-mgmt-status enable`: Allows individual management access
-- `override enable`: Enables preemption
+- `override enable`: Enables preemption (only FGT-HUB1)
 - `monitor`: Triggers a failover if link goes down
 
 After applying `set mode a-p`, FGT-HUB1 will wait for a **secondary** (FGT-HUB2) to join the cluster.
 
 ### HA Configuration
+
 ```bash
 config system ha
     set group-name "HUB-CLUSTER"
     set mode a-p
     set password root123!
     set hbdev "port4" 50
+    set session-sync-dev "port5"
     set session-pickup enable
     set session-pickup-connectionless enable
-    set session-pickup-nat enable
-    set ha-mgmt-status enable
-    config ha-mgmt-interfaces
-        edit 1
-            set interface "port3"
-            set gateway 10.100.254.2
-        !
-    end
     set override enable
     set priority 200
     set monitor "port1" "port2" "port3" "port6"
@@ -49,16 +48,9 @@ config system ha
     set mode a-p
     set password root123!
     set hbdev "port4" 50
+    set session-sync-dev "port5"
     set session-pickup enable
     set session-pickup-connectionless enable
-    set session-pickup-nat enable
-    set ha-mgmt-status enable
-    config ha-mgmt-interfaces
-        edit 1
-            set interface "port3"
-            set gateway 10.100.254.6
-        next
-    end
     set override disable
     set priority 100
     set monitor "port1" "port2" "port3" "port6"
@@ -73,60 +65,9 @@ end
 
 ### HA Status
 
-**From FGT-HUB1 or FGT-HUB2:**
+**FGT-HUB1:**
 ```bash
 get system ha status
 ```
 
-* bilde
-
-### Cluster from GUI
-
-**Access cluster via virtual IP:**
-Open browser: `ny ip fra pc/ruter`
-
-* bilde
-
-### Management Access
-
-**Access FGT-HUB1 and FGT-HUB2:**
-```bash
-ssh admin@10.100.10.1
-ssh admin@10.100.10.2
-```
-
-* bilde
-* wireshark?
-
----
-
-## Failover Testing
-
-### Test #1 - Manual Failover
-
-From FGT-HUB1 (active):
-```bash
-execute ha failover set 1
-```
-
-*Æ wireshark
-
-**Verification:**
-```bash
-get system ha status
-```
-
-* bilde
-
-### Test #2 - Interface Failure
-
-From FGT-HUB1 (active):
-```bash
-config system interface
-    edit "port1"
-        set status down
-end
-```
-
-* bilde
-* wireshark?
+[Step06 - System HA Status](/images/step06_system_ha_status.png)

@@ -31,12 +31,12 @@ router ospf 1
  passive-interface default
  no passive-interface GigabitEthernet0/0
 end 
-write
 ```
 
 ### FGT-A
 
-Annoyingly FortiOS 7.6.3 uses dotted-decimal notation for OSPF areas (0.0.0.1 = Area 1).
+Annoyingly FortiOS 7.2.0 uses dotted-decimal notation for OSPF areas (0.0.0.1 = Area 1).
+Fortinet also has quite the travel only to put a port in P2P.
 
 ```bash
 config router ospf
@@ -54,7 +54,16 @@ config router ospf
             set area 0.0.0.1
     end
 end
-write
+!
+config router ospf
+    config ospf-interface
+        edit port3
+            set interface port3
+            set ip 10.10.254.1
+            set network-type point-to-point
+        end
+    !
+end
 ```
 
 ---
@@ -80,8 +89,6 @@ router ospf 1
  router-id 10.255.2.2
  passive-interface default
  no passive-interface GigabitEthernet0/0
-end
-write
 ```
 
 ### FGT-B
@@ -99,9 +106,18 @@ config router ospf
         edit 2
             set prefix 10.255.2.1 255.255.255.255
             set area 0.0.0.2
+        end
     end
+!
+config router ospf
+    config ospf-interface
+        edit port3
+            set interface port3
+            set ip 10.20.254.1
+            set network-type point-to-point
+        end
+    !
 end
-write
 ```
 
 ---
@@ -111,7 +127,6 @@ write
 ### R2-H (FRR)
 ```bash
 router ospf
- 
  ospf router-id 10.255.3.3
 exit
 !
@@ -123,39 +138,41 @@ interface eth2
 !
 interface eth3
  ip ospf area 0
- ip ospf interface passive
-!
+ ip ospf passive
 end
-write
 ```
 
-### FGT-HUB1 (LAN VDOM)
+### FGT-HUB1
 
-OSPF will run in the LAN VDOM since it peers with R2-H over port3.
+OSPF will peer with R2-H over port3.
 
 ```bash
-config vdom
-edit LAN
-!
 config router ospf
     set router-id 10.255.3.1
     config area
         edit 0.0.0.0
+        next
     end
     config network
         edit 1
             set prefix 10.100.254.0 255.255.255.252
             set area 0.0.0.0
+        end
     end
+!
+config router ospf
+    config ospf-interface
+        edit port3
+            set interface port3
+            set ip 10.100.254.1
+            set network-type point-to-point
+        end
+    !
 end
-write
 ```
 
-### FGT-HUB2 (LAN VDOM)
+### FGT-HUB2
 ```bash
-config vdom
- edit LAN
-!
 config router ospf
     set router-id 10.255.3.2
     config area
@@ -166,9 +183,19 @@ config router ospf
         edit 1
             set prefix 10.100.254.4 255.255.255.252
             set area 0.0.0.0
-    end
+        end
+    !
 end
-write
+!
+config router ospf
+    config ospf-interface
+        edit port3
+            set interface port3
+            set ip 10.100.254.5
+            set network-type point-to-point
+        end
+    !
+end
 ```
 
 ---
@@ -180,18 +207,11 @@ write
 show ip ospf neighbor
 ```
 
-* bilde
+[Step04 - R1-A OSPF confirmation](/images/step04_r1_show_ospf_neigh.png)
 
 **From FGT-A and FGT-B:**
 ```bash
 get router info ospf neighbor
 ```
 
-* bilde
-
-**Check OSPF routes:**
-```bash
-get router info routing-table ospf
-```
-
-* bilde
+[Step04 - Branch-FW neighbourship confirmaton](/images/step04_fgt-a-b_ospf_neigh.png)

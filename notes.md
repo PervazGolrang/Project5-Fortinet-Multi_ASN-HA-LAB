@@ -1,6 +1,28 @@
 # Lab Journal and Troubleshooting
 
-This project, was designed to showcase my CCNP Enterprise (ENCOR + ENARSI) and Fortinet FCP (FCSS Enterprise Firewall 7.4, FortiGate Admin 7.4, FortiAnalyzer Admin 7.4) skills in a realistic, impressive topology. Built on CML 2.9.0, it integrates Fortinet FGCP HA, BGP/OSPF routing, IPsec tunnels, and DMZ services, blending GUI and CLI configs. Below are my notes, implementation challenges, and troubleshooting tips as of October 17, 2025, 11:37 AM CEST.
+This project was designed to showcase my CCNP Enterprise (ENCOR + ENARSI) and Fortinet FCP (FCSS Enterprise Firewall 7.4, FortiGate Admin 7.4) knowledge in a realistic topology. Built on CML 2.9.0, it integrates Fortinet FGCP HA, BGP/OSPF routing, IPsec tunnels, and security policies, blending GUI and CLI configurations.
+
+---
+
+## Lab Limitations and Issues
+
+### FortiGate Evaluation License Restrictions
+
+**VDOM Not Supported:**
+VDOMs are disabled on evaluation license, even if not mentioned on the webui, or most documentation. The lab is adjusted to use a single root VDOM only.
+
+**Firewall Policy Limit:**
+At Policy 3 in Step08, the FGT-HUB hit a policy limit. The evaluation license restricts a total policy count, this led to only Policy 1 and Policy 2 to be applied. The remaning policies are documented, but not implemented.
+
+**Interface Limit:**
+FortiOS 7.6.4 restricts evaluation licenses to 3 interfaces, which is unusably low for this lab. This led to me downgrading to FortiOS 7.2.0 for a 10-interface support, as it does not have an as-strict SmartLicense limiter.
+
+### FortiAnalyzer Removed
+
+**Original Plan:**
+The original plan was to have Step 09 for FortiAnalyzer, for centralized logging, and Step 10 for DMZ services. This was later removed. The FortiAnalyzer image is corrupted on multiple download attempts from Fortinet's own website. Tried 7.4.2, 7.2.0 - all failed. Decided to remove steps 09-10 entirely. DMZ subnets (10.100.10.0/24) remains in design but unused.
+
+The primary goal, of Steps 01-08 are complete and functional; the primary tunnels are UP andworking, and inter-branch communication is functional. The lab demonstrates core skills without logging/DMZ services.
 
 ---
 
@@ -34,25 +56,27 @@ sudo systemctl restart ksmtuned # Restarts
 sudo systemctl enable ksmtuned  # Enables on boot
 ```
 
+Memory deduplication completion time reduced from 50 minutes to 20 minutes.
+
 ---
 
 ## FortiGate Configuration
 
 ### Version & Licensing
 
-**FortiOS Version:** 7.0.9 (downgraded from 7.6.4) for FortiGate
+**FortiOS Version:** 7.2.0 (downgraded from 7.6.4) for FortiGate
 
 **Reason for the downgrade:**
-- FortiOS 7.6.4 uses a type of SmartLicense with is extremely restrictive on its evaluation limits:
-  - Maximum 3 interfaces (lab requires 4+ per firewall, especially FGT-HUB1/2)
+- FortiOS 7.6.4 uses a type of SmartLicense with extreme restrictions:
+  - Maximum 3 interfaces (lab requires 6+ per firewall)
   - 1 license per FortiCare account (impossible for multi-firewall labs)
-  - 1 vCPU and 2GB RAM limit (not a big problem)
-- FortiOS 7.0.9 evaluation license allows:
+  - 1 vCPU and 2GB RAM limit
+- FortiOS 7.2.0 evaluation license allows:
   - Up to 10 interfaces
   - Better resource limits
   - Multiple VMs per account
 
-  It is quite a bit older, especially encryption wise, however, without it, the project can't be completed.
+ FortiOS 7.2.0 is quite a bit older and lacks some security features, but it was necessary for the lab completion.
 
 ### Network Driver (NIC)
 
@@ -95,7 +119,7 @@ pathd         # Segment Routing / Traffic Engineering
 
 ## References
 
-- FortiOS 7.0 Documentation: https://docs.fortinet.com/product/fortigate/7.0
+- FortiOS 7.0 Documentation: https://docs.fortinet.com/product/fortigate/7.2
 - FortiOS 7.6 Documentation: https://docs.fortinet.com/product/fortigate/7.6
 - FRR Documentation: https://docs.frrouting.org/
 - CML Documentation: https://developer.cisco.com/docs/modeling-labs/
