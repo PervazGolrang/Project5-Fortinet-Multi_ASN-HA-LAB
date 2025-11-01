@@ -71,13 +71,13 @@ Refer to [notes.md](/notes.md) to tune and enable KSM on CML. It would take up t
 
 ## Implementation Steps
 
-**Step 1:** Console access, management IPs, basic connectivity
-**Step 2:** BGP backbone (iBGP), OSPF for underlay
-**Step 3:** WAN/LAN interfaces, loopbacks
-**Step 4:** Multi-area OSPF within each ASN
-**Step 5:** eBGP sessions between FortiGates and PE routers
-**Step 6:** Active-passive HA on hub firewalls
-**Step 7:** Site-to-site VPN with redundant paths
+**Step 1:** Console access, management IPs, basic connectivity  
+**Step 2:** BGP backbone (iBGP), OSPF for underlay  
+**Step 3:** WAN/LAN interfaces, loopbacks  
+**Step 4:** Multi-area OSPF within each ASN  
+**Step 5:** eBGP sessions between FortiGates and PE routers  
+**Step 6:** Active-passive HA on hub firewalls  
+**Step 7:** Site-to-site VPN with redundant paths  
 **Step 8:** Firewall rules, NAT, UTM profiles
 
 These steps will also mostly follow the format below in terms of CLI/GUI usage:
